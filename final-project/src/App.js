@@ -4,7 +4,7 @@ import Home from './components/Home';
 import Search from './components/Search';
 import TopMovies from './components/TopMovies';
 import TopTV from './components/TopTV';
-import Reviews from './components/Reviews';
+import HowToUse from './components/HowToUse';
 import Navbar from './components/Navbar';
 
 import {
@@ -32,8 +32,8 @@ function App() {
           <Route path="/toptv">
             <TopTV />
           </Route>
-          <Route path="/reviews">
-            <Reviews />
+          <Route path="/howtouse">
+            <HowToUse />
           </Route>
           <Route exact path="/">
             <Home />
