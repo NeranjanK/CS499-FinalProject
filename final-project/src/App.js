@@ -26,10 +26,10 @@ function App() {
           <Route path="/search">
             <Search />
           </Route>
-          <Route path="/topmovies">
+          <Route path="/topmovies/:page">
             <TopMovies />
           </Route>
-          <Route path="/toptv">
+          <Route path="/toptv/:page">
             <TopTV />
           </Route>
           <Route path="/reviews">

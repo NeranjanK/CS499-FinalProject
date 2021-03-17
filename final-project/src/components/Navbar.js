@@ -18,8 +18,8 @@ function Navbar() {
             <ul>
                 <li><NavLink exact to="/">Home</NavLink></li>
                 <li><NavLink to="/search">Search</NavLink></li>
-                <li><NavLink to="/topmovies">Top Movies</NavLink></li>
-                <li><NavLink to="/toptv">Top TV Shows</NavLink></li>
+                <li><NavLink to="/topmovies/1">Top Movies</NavLink></li>
+                <li><NavLink to="/toptv/1">Top TV Shows</NavLink></li>
                 <li><NavLink to="/reviews">Reviews</NavLink></li>
             </ul>
       </div>
