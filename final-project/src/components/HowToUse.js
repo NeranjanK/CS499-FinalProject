@@ -1,10 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-function Reviews() {
+function HowToUse() {
     return (
-        <h1>Reviews</h1>
+        <h1>How To Use</h1>
     );
 }
 
-export default Reviews;
+export default HowToUse;

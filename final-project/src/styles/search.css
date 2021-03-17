@@ -1,0 +1,19 @@
+.movieBox {
+    list-style-type: none;
+    padding: 10px;
+    margin: 10px;
+    overflow: auto;
+    text-align: center;
+}
+
+.movie {
+    margin: 20px;
+    background-color: #gray;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    width: 15%;
+    text-align: center;
+    display: inline-block;
+    border: 5px solid black;
+    color: black;
+    padding: 10px;
+}
