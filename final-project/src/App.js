@@ -4,8 +4,10 @@ import Home from './components/Home';
 import Search from './components/Search';
 import TopMovies from './components/TopMovies';
 import TopTV from './components/TopTV';
-import Reviews from './components/Reviews';
+import HowToUse from './components/HowToUse';
 import Navbar from './components/Navbar';
+
+import queryString from 'query-string';
 
 import {
   Route,
@@ -14,8 +16,13 @@ import {
   NavLink,
   Redirect,
   useParams,
-  useRouteMatch
+  useRouteMatch, 
+  useLocation
 } from 'react-router-dom';
+
+function useQueryString() {
+  return queryString.parse(useLocation().search);
+}
 
 function App() {
   return (
@@ -24,7 +31,7 @@ function App() {
 
       <Switch>
           <Route path="/search">
-            <Search />
+            <Search query={useQueryString().q} />
           </Route>
           <Route path="/topmovies/:page">
             <TopMovies />
@@ -32,8 +39,8 @@ function App() {
           <Route path="/toptv/:page">
             <TopTV />
           </Route>
-          <Route path="/reviews">
-            <Reviews />
+          <Route path="/howtouse">
+            <HowToUse />
           </Route>
           <Route exact path="/">
             <Home />
