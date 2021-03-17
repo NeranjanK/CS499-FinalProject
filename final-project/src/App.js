@@ -7,6 +7,8 @@ import TopTV from './components/TopTV';
 import HowToUse from './components/HowToUse';
 import Navbar from './components/Navbar';
 
+import queryString from 'query-string';
+
 import {
   Route,
   Switch,
@@ -14,8 +16,13 @@ import {
   NavLink,
   Redirect,
   useParams,
-  useRouteMatch
+  useRouteMatch, 
+  useLocation
 } from 'react-router-dom';
+
+function useQueryString() {
+  return queryString.parse(useLocation().search);
+}
 
 function App() {
   return (
@@ -24,7 +31,7 @@ function App() {
 
       <Switch>
           <Route path="/search">
-            <Search />
+            <Search query={useQueryString().q} />
           </Route>
           <Route path="/topmovies">
             <TopMovies />
