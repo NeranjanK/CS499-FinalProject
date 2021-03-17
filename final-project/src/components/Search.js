@@ -125,8 +125,8 @@ function Search({ query }) {
             {repos.map(repo => (
               <li key={repo.id} className = "movie">
                 <img src = {buildIconURL(repo.poster_path)}></img>
-                <p>{repo.title}</p>
-                <p>{getDate(repo.release_date)}</p>
+                {/* <p>{repo.title}</p>
+                <p>{getDate(repo.release_date)}</p> */}
               </li>
             ))}
           </ul>
