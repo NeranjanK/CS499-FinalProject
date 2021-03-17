@@ -66,7 +66,7 @@ function TopTV() {
             <div css={listStyle}>
                 {
                     topShows.map(show => (
-                        <MediaCard name={show.original_name} overview={show.overview}/>
+                        <MediaCard name={show.name} overview={show.overview}/>
                     ))
                 }
             </div>

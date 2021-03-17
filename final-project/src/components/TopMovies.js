@@ -61,7 +61,7 @@ function TopMovies() {
             <div>
                 {
                     topMovies.map(show => (
-                        <MediaCard name={show.original_title} overview={show.overview}/>
+                        <MediaCard name={show.title} overview={show.overview}/>
                     ))
                 }
             </div>
