@@ -16,3 +16,18 @@
     /* border: 5px solid black; */
     color: black;
 }
+
+.search-bar {
+    margin-top: 30px;
+}
+
+.searchButton {
+    margin-left: 10px;
+    height: 42px;
+    width: 75px;
+}
+
+.searchBar {
+    height: 35px;
+    font-size: large;
+}

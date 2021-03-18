@@ -105,18 +105,11 @@ function Search({ query }) {
           e.preventDefault();
           history.push(`?q=${inputQuery}`);
         }}>
-            <input value={inputQuery} onChange={e => setInputQuery(e.target.value)} type="search" name="search" pattern=".*\S.*" required/>
-            <button class="search-btn" type="submit">
+              <input value={inputQuery} onChange={e => setInputQuery((e.target.value))} type="input" className="searchBar" placeholder="Category ID..." name="name" id='name' required />
+            <button class="search-btn" type="submit" className = "searchButton">
                 <span>Search</span>
             </button>
         </form>
-        {/* <form onSubmit={(e) => {
-          e.preventDefault();
-          history.push(`?q=${inputQuery}`);
-        }}>
-          <input value={inputQuery} onChange={e => setInputQuery(e.target.value)} />
-          <button type="submit">Search</button>
-        </form> */}
         {isError && <ErrorContainer>Error message!</ErrorContainer>}
         {isLoading ? (
           <Spinner />

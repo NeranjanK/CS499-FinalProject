@@ -20,7 +20,6 @@ function Navbar() {
                 <li><NavLink to="/search">Search</NavLink></li>
                 <li><NavLink to="/topmovies/1">Top Movies</NavLink></li>
                 <li><NavLink to="/toptv/1">Top TV Shows</NavLink></li>
-                <li><NavLink to="/reviews">Reviews</NavLink></li>
                 <li className = "tutorial"><NavLink to="/howtouse">How To Use</NavLink></li>
             </ul>
       </div>

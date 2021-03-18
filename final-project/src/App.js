@@ -49,7 +49,6 @@ function App() {
             <h1>404</h1>
           </Route>
       </Switch>
-      <Link to="/">Navigate to home page</Link>
     </div>
 
   );
