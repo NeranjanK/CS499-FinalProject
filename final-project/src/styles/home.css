@@ -1,0 +1,41 @@
+
+
+.title {
+    font-size: 75px;;
+}
+
+.title_holder {
+}
+
+.description {
+    font-size: 25px;
+    text-align: center;
+}
+
+.home_box {
+    width: 600px;
+    position: fixed; /* or absolute */
+    color: white;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    /* bring your own prefixes */
+    transform: translate(-50%, -50%);
+}
+
+.title_holder {
+    background: black;
+    border-radius: 20px;
+    padding: 20px;
+}
+
+.usage {
+    background: white;
+    margin: 10px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
