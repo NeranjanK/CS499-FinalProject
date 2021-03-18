@@ -5,7 +5,7 @@ import Search from './components/Search';
 import TopMovies from './components/TopMovies';
 import TopTV from './components/TopTV';
 import HowToUse from './components/HowToUse';
-import Navbar from './components/Navbar';
+import NewNavbar from './components/Navbar';
 
 import queryString from 'query-string';
 
@@ -27,7 +27,7 @@ function useQueryString() {
 function App() {
   return (
     <div>
-      <Navbar />
+      <NewNavbar />
 
       <Switch>
           <Route path="/search">

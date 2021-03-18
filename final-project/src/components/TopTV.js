@@ -19,10 +19,11 @@ function TopTV() {
     const [ isLoading, setIsLoading ] = useState(false);
     const [ isError, setIsError ] = useState(false);
     const listStyle = css`
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
+    list-style-type: none;
+    padding: 10px;
+    margin: 10px;
     overflow: auto;
+    text-align: center;
     `;
 
     useEffect(() => {
@@ -49,7 +50,7 @@ function TopTV() {
           }
     
           if (!ignore) {
-            console.log("== Top TV shows:", responseBody.results);
+            console.log("== Top TV shows:", responseBody);
             setTopShows(responseBody.results || []);
             setIsLoading(false);
           }
@@ -62,14 +63,14 @@ function TopTV() {
       }, [page]);
     return (
         <div>
-            <h1>TopTV</h1>
-            <div css={listStyle}>
+            <h1>Top TV Shows</h1>
+            <ul css={listStyle}>
                 {
                     topShows.map(show => (
-                        <MediaCard name={show.name} overview={show.overview}/>
+                        <MediaCard name={show.name} imagePath={show.poster_path} date={show.first_air_date} overview={show.overview}/>
                     ))
                 }
-            </div>
+            </ul>
             <p>Page {page}</p>
             <row>
                 {(page != '1') ? (

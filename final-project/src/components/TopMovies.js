@@ -1,3 +1,4 @@
+/** @jsxImportSource @emotion/react */
 import React, {useState, useEffect} from 'react';
 import ReactDOM from 'react-dom';
 import MediaCard from '../models/MediaCard';
@@ -17,6 +18,13 @@ function TopMovies() {
     const [topMovies, setTopMovies] = useState([]);
     const [ isLoading, setIsLoading ] = useState(false);
     const [ isError, setIsError ] = useState(false);
+    const listStyle = css`
+    list-style-type: none;
+    padding: 10px;
+    margin: 10px;
+    overflow: auto;
+    text-align: center;
+    `;
 
     useEffect(() => {
         console.log(`url: ${url}`);
@@ -58,13 +66,13 @@ function TopMovies() {
     return (
         <div>
             <h1>Top Movies</h1>
-            <div>
+            <ul css={listStyle}>
                 {
                     topMovies.map(show => (
-                        <MediaCard name={show.title} overview={show.overview}/>
+                        <MediaCard name={show.title} imagePath={show.poster_path} date={show.release_date} overview={show.overview}/>
                     ))
                 }
-            </div>
+            </ul>
             <p>Page {page}</p>
             <row>
                 {(page != '1') ? (

@@ -1,31 +1,73 @@
 /** @jsxImportSource @emotion/react */
-import React from 'react';
+import React,{useState} from 'react';
 import { css, jsx } from '@emotion/react';
+import buildIconURL from '../helpers/buildIconUrl';
+import getDate from '../helpers/getDate';
+import Modal from 'react-bootstrap/Modal'
+import Button from 'react-bootstrap/Button';
 
-function MediaCard({name, overview}) {
+
+function MyVerticallyCenteredModal(props) {
+    return (
+    <div onClick={e => e.stopPropagation()}>
+        <Modal
+        {...props}
+        size="lg"
+        aria-labelledby="contained-modal-title-vcenter"
+        centered
+        animation={false}
+      >
+        <Modal.Header closeButton>
+          <Modal.Title id="contained-modal-title-vcenter">
+            Overview
+          </Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          <p>
+            {props.overview}
+          </p>
+        </Modal.Body>
+        <Modal.Footer>
+          <Button onClick={props.onHide}>Close</Button>
+        </Modal.Footer>
+      </Modal>
+    </div>
+    );
+  }
+
+
+function MediaCard({name, imagePath, date, overview}) {
+    const [showModal, setShowModal] = useState(false);
     const cardStyle = css`
-        background-color: #5F9EA0;
-        border-radius: 10px;
-        margin-top: 8px;
-        margin-bottom: 8px;
-        margin-left: 8px;
-        border-top: 1px solid #ccc;
-        border-left: 1px solid #ccc;
-        border-right: 1px solid #ccc;
-        border-bottom: 1px solid #ccc;
-        flex: 0 1 calc(25% - 1em);
-        box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.15);
-        p {
-            margin-top: 8px;
-            margin-bottom: 8px;
-            margin-left: 8px;
-        }
+    margin: 30px;
+    background-color: #gray;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    width: 200px;
+    text-align: center;
+    display: inline-block;
+    color: black;
     `
+
+    const handleOpenModal = () =>{
+        setShowModal(true);
+    };
+
+    const handleCloseModal = () =>{
+        setShowModal(false);
+        console.log(`showModal: ${showModal}`)
+    };
+
     return(
-        <div css={cardStyle}>
-            <p>Name: {name} </p>
-            <p>Overview: {overview} </p>
-        </div>
+        <li onClick={handleOpenModal} css={cardStyle}>
+            <img src = {buildIconURL(imagePath)}></img>
+            <p>{name}</p>
+            <p>{getDate(date)}</p>
+            <MyVerticallyCenteredModal
+                show={showModal}
+                onHide={()=>{setShowModal(false)}}
+                overview={overview}
+            />
+        </li>
     );
 }
 

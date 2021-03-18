@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import ReactDOM from 'react-dom';
 import { useHistory } from 'react-router-dom';
 import fetch from 'isomorphic-unfetch';
-
+import MediaCard from '../models/MediaCard';
 import Spinner from './Spinner';
 import ErrorContainer from './ErrorContainer';
 
@@ -116,11 +116,12 @@ function Search({ query }) {
         ) : (
           <ul className = "movieBox">
             {repos.map(repo => (
-              <li key={repo.id} className = "movie">
-                <img src = {buildIconURL(repo.poster_path)}></img>
-                {/* <p>{repo.title}</p>
-                <p>{getDate(repo.release_date)}</p> */}
-              </li>
+              <MediaCard name={repo.title} imagePath={repo.poster_path} date={repo.release_date} overview={repo.overview}/>
+              // <li key={repo.id} className = "movie">
+              //   <img src = {buildIconURL(repo.poster_path)}></img>
+              //   {/* <p>{repo.title}</p>
+              //   <p>{getDate(repo.release_date)}</p> */}
+              // </li>
             ))}
           </ul>
         )}
