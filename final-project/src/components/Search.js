@@ -7,6 +7,7 @@ import Spinner from './Spinner';
 import ErrorContainer from './ErrorContainer';
 
 import '../styles/search.css'
+import { shallowEqual } from 'react-redux';
 
 function genreToID(genre) {
     let newGenre = genre.toLowerCase();
@@ -116,7 +117,7 @@ function Search({ query }) {
         ) : (
           <ul className = "movieBox">
             {repos.map(repo => (
-              <MediaCard name={repo.title} imagePath={repo.poster_path} date={repo.release_date} overview={repo.overview}/>
+              <MediaCard name={repo.title} imagePath={repo.poster_path} date={repo.release_date} overview={repo.overview} id={repo.id}/>
               // <li key={repo.id} className = "movie">
               //   <img src = {buildIconURL(repo.poster_path)}></img>
               //   {/* <p>{repo.title}</p>

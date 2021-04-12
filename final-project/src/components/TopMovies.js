@@ -52,7 +52,6 @@ function TopMovies() {
           }
     
           if (!ignore) {
-            console.log("== Top Movies:", responseBody);
             setTopMovies(responseBody.results || []);
             setIsLoading(false);
           }
@@ -69,7 +68,7 @@ function TopMovies() {
             <ul css={listStyle}>
                 {
                     topMovies.map(show => (
-                        <MediaCard name={show.title} imagePath={show.poster_path} date={show.release_date} overview={show.overview}/>
+                        <MediaCard name={show.title} imagePath={show.poster_path} date={show.release_date} overview={show.overview} id={show.id}/>
                     ))
                 }
             </ul>

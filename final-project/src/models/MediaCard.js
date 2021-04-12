@@ -5,9 +5,31 @@ import buildIconURL from '../helpers/buildIconUrl';
 import getDate from '../helpers/getDate';
 import Modal from 'react-bootstrap/Modal'
 import Button from 'react-bootstrap/Button';
-
+import Axios from 'axios';
+import { useSelector } from 'react-redux';
+import { getCurrUser } from '../redux/selectors';
 
 function MyVerticallyCenteredModal(props) {
+  const currUser = useSelector(getCurrUser);
+  const addToWatchLater = () => {
+    Axios.post('http://localhost:3001/add_to_watch_later_movie', {
+        userID: currUser.userID,
+        movieID: props.id
+    }).then(
+        ()=>{
+            console.log('success');
+        }
+    );
+  }
+
+  const deleteFromWatchlater = () => {
+    Axios.delete(`http://localhost:3001/delete_watch_list/${currUser.userID}/${props.id}`).then(
+        ()=>{
+            console.log('success');
+        }
+    );
+  }
+
     return (
     <div onClick={e => e.stopPropagation()}>
         <Modal
@@ -28,6 +50,8 @@ function MyVerticallyCenteredModal(props) {
           </p>
         </Modal.Body>
         <Modal.Footer>
+          {!props.iswatchlist && <Button onClick={addToWatchLater}>Add to watch later</Button>}
+          {props.iswatchlist && <Button onClick={deleteFromWatchlater}>Remove from watch later</Button>}
           <Button onClick={props.onHide}>Close</Button>
         </Modal.Footer>
       </Modal>
@@ -36,7 +60,7 @@ function MyVerticallyCenteredModal(props) {
   }
 
 
-function MediaCard({name, imagePath, date, overview}) {
+function MediaCard({name, imagePath, date, overview, id, iswatchlist}) {
     const [showModal, setShowModal] = useState(false);
     const cardStyle = css`
     margin: 30px;
@@ -66,6 +90,8 @@ function MediaCard({name, imagePath, date, overview}) {
                 show={showModal}
                 onHide={()=>{setShowModal(false)}}
                 overview={overview}
+                id={id}
+                iswatchlist={iswatchlist}
             />
         </li>
     );
